@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Ayumi ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background-color: #fff0f5;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    nav {
+      background-color: #ff5e9c;
+      padding: 10px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    h1, h2 {
+      color: #d63384;
+    }
+
+    #cartinha {
+      font-size: 18px;
+      max-width: 600px;
+      margin: auto;
+      white-space: pre-wrap;
+      color: #444;
+      border: 1px solid #ffb6c1;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 15px;
+    }
+
+    footer {
+      background-color: #ffeef2;
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #888;
+    }
+
+    .ytplayer {
+      margin-top: 20px;
+    }
+
+    /* 🔸 Container das imagens */
+    .galeria {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+    /* 🔸 Imagens normais */
+    .galeria img {
+      width: 250px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px pink;
+      transition: transform 0.3s ease;
+    }
+
+    /* 🔸 Efeito de destaque ao passar o mouse */
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    /* 🔸 A foto pequena e central */
+    .foto-pequena {
+      width: 180px;
+      order: 3; /* Mantém ela no meio, entre as outras */
+      border: 3px solid #ffb6c1;
+      box-shadow: 0 0 25px pink;
+      animation: pulsar 2s ease-in-out infinite;
+    }
+
+    @keyframes pulsar {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px pink;
+      }
+      50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 35px #ff8acb;
+      }
+    }
+
+    /* 🔸 Responsividade — no celular, tudo em coluna */
+    @media (max-width: 768px) {
+      .galeria {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .galeria img,
+      .foto-pequena {
+        width: 90%;
+        max-width: 350px;
+        order: unset; /* volta à ordem normal */
+        animation: none; /* desativa pulsar no celular pra não pesar */
+      }
+
+      nav a {
+        margin: 0 10px;
+        font-size: 14px;
+      }
+
+      #cartinha {
+        font-size: 16px;
+        padding: 15px;
+      }
+    }
+
+    /* Emojis animados subindo */
+    .emoji {
+      position: fixed;
+      bottom: -50px;
+      font-size: 30px;
+      animation: subir 6s linear infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    @keyframes subir {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-110vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Emojis subindo -->
+  <script>
+    const emojis = ['💖', '🐼', '💘', '🌸', '💞', '💕'];
+    function criarEmoji() {
+      const emoji = document.createElement('div');
+      emoji.classList.add('emoji');
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.animationDuration = (4 + Math.random() * 3) + 's';
+      document.body.appendChild(emoji);
+      setTimeout(() => emoji.remove(), 7000);
+    }
+    setInterval(criarEmoji, 500);
+  </script>
+
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#cartinha-section">Cartinha</a>
+    <a href="#imagem">Imagem</a>
+    <a href="#musica">Música</a>
+    <a href="#tempo">Tempo</a>
+  </nav>
+
+  <section class="section" id="inicio">
+    <h1>Oi, minha princesa 🐼💖</h1>
+    <p>Esse é só o começo de algo feito com carinho, código e coração. 💻❤️</p>
+  </section>
+
+  <section class="section" id="cartinha-section">
+    <h2>💌 Cartinha pra você</h2>
+    <div id="cartinha"></div>
+  </section>
+
+  <section class="section" id="imagem">
+    <h2>📸 Imagens especiais</h2>
+    <div class="galeria">
+      <img src="ayumifoto.jpeg" alt="Ayumi linda">
+      <img src="ayumifoto1.jpeg" alt="Ayumi linda">
+      <img src="ayumifoto2.jpeg" alt="Ayumi linda" class="foto-pequena">
+      <img src="ayumifoto3.jpeg" alt="Ayumi linda">
+      <img src="ayumifoto4.jpeg" alt="Ayumi linda">
+    </div>
+  </section>
+
+  <section class="section" id="musica">
+    <h2>🎵 Nossa música</h2>
+    <p>Aumenta o volume... essa é pra você 💘</p>
+    <div class="ytplayer">
+      <button onclick="tocarMusica()">Tocar música 🎵</button>
+      <div id="player" style="margin-top:10px; display: none;">
+        <iframe width="300" height="200"
+          src="https://www.youtube.com/embed/3U0CYQyJYjM?autoplay=1"
+          title="Nocaute - Jorge & Mateus" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <script>
+        function tocarMusica() {
+          document.getElementById("player").style.display = "block";
+        }
+      </script>
+    </div>
+  </section>
+
+  <section class="section" id="tempo">
+    <h2>⏳ Há quanto tempo eu amo você </h2>
+    <div id="timer" style="font-size: 24px; color: #d63384; margin-top: 10px;"></div>
+  </section>
+
+  <footer>
+    Feito por Giovanny 💻❤️‍🔥 | Edição de HTML e JS mais fofa do mundo
+  </footer>
+
+  <!-- Cartinha digitando sozinha -->
+  <script>
+    const texto = `Meu amor,
+
+Desde o primeiro momento que comecei a te observar, percebi algo diferente em você. Algo que me fez querer sorrir, querer escrever, e agora... programar.
+
+Talvez você nem imagine o quanto é especial, o quanto seu jeitinho me encanta. E mesmo com minhas inseguranças, decidi fazer isso aqui, simples, mas sincero.
+
+Não precisa entender tudo de HTML, CSS ou JavaScript... só precisa sentir.
+
+Esse é só um pedaço do que eu queria te mostrar. Porque você é muito mais do que qualquer código poderia expressar. 💖🐼`;
+
+    let i = 0;
+    function digitar() {
+      if (i < texto.length) {
+        document.getElementById("cartinha").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(digitar, 40);
+      }
+    }
+    window.onload = digitar;
+  </script>
+
+  <!-- Timer do amor -->
+  <script>
+    const dataInicio = new Date("2024-04-26T00:00:00");
+
+    function atualizarContador() {
+      const agora = new Date();
+      const diff = agora - dataInicio;
+
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
+      const minutos = Math.floor((diff / (1000 * 60)) % 60);
+      const segundos = Math.floor((diff / 1000) % 60);
+
+      document.getElementById("timer").innerText =
+        `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos 💘`;
+    }
+
+    setInterval(atualizarContador, 1000);
+    atualizarContador();
+  </script>
+
+</body>
+</html>
