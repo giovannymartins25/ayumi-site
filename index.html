@@ -65,7 +65,6 @@
       margin-top: 20px;
     }
 
-    /* 🔸 Container das imagens */
     .galeria {
       display: flex;
       flex-wrap: wrap;
@@ -74,7 +73,6 @@
       gap: 15px;
     }
 
-    /* 🔸 Imagens normais */
     .galeria img {
       width: 250px;
       border-radius: 15px;
@@ -82,15 +80,13 @@
       transition: transform 0.3s ease;
     }
 
-    /* 🔸 Efeito de destaque ao passar o mouse */
     .galeria img:hover {
       transform: scale(1.05);
     }
 
-    /* 🔸 A foto pequena e central */
     .foto-pequena {
       width: 180px;
-      order: 3; /* Mantém ela no meio, entre as outras */
+      order: 3; 
       border: 3px solid #ffb6c1;
       box-shadow: 0 0 25px pink;
       animation: pulsar 2s ease-in-out infinite;
@@ -107,7 +103,6 @@
       }
     }
 
-    /* 🔸 Responsividade — no celular, tudo em coluna */
     @media (max-width: 768px) {
       .galeria {
         flex-direction: column;
@@ -118,9 +113,8 @@
       .foto-pequena {
         width: 90%;
         max-width: 350px;
-        order: unset; /* volta à ordem normal */
-        animation: none; /* desativa pulsar no celular pra não pesar */
-      }
+        order: unset; 
+        animation: none; 
 
       nav a {
         margin: 0 10px;
@@ -133,7 +127,6 @@
       }
     }
 
-    /* Emojis animados subindo */
     .emoji {
       position: fixed;
       bottom: -50px;
@@ -157,7 +150,6 @@
 </head>
 <body>
 
-  <!-- Emojis subindo -->
   <script>
     const emojis = ['💖', '🐼', '💘', '🌸', '💞', '💕'];
     function criarEmoji() {
@@ -231,7 +223,6 @@
     Feito por Giovanny 💻❤️‍🔥 | Edição de HTML e JS mais fofa do mundo
   </footer>
 
-  <!-- Cartinha digitando sozinha -->
   <script>
     const texto = `Meu amor,
 
@@ -254,7 +245,6 @@ Esse é só um pedaço do que eu queria te mostrar. Porque você é muito mais d
     window.onload = digitar;
   </script>
 
-  <!-- Timer do amor -->
   <script>
     const dataInicio = new Date("2024-04-26T00:00:00");
 
